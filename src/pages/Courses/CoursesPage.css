@@ -1,0 +1,216 @@
+.courses-page {
+  min-height: calc(100vh - 80px);
+  padding: 64px 0 96px;
+}
+
+.courses-page-shell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.courses-page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+}
+
+.courses-page-header h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 4vw + 0.8rem, 3.7rem);
+  letter-spacing: -0.04em;
+}
+
+.courses-page-header p {
+  max-width: 640px;
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+.course-card-item {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+}
+
+.course-card-item .ui-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.course-card-item .ui-card::before {
+  content: ''; 
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), var(--border-medium), rgba(255,255,255,0.08));
+  opacity: 0.7;
+}
+
+.course-card-item.course-card--selected .ui-card {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.96));
+}
+
+.course-card-item.course-card--selected .course-card-accent {
+  background: var(--brand-gradient);
+}
+
+.course-card-item.course-card--soon .ui-card {
+  opacity: 0.9;
+}
+
+.course-card-item.course-card--soon .course-card-button {
+  opacity: 0.7;
+}
+
+.course-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.course-card-accent {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: rgba(15, 23, 42, 0.85);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.course-card-identity {
+  flex: 1;
+  min-width: 0;
+}
+
+.course-card-name {
+  margin: 0;
+  font-size: clamp(1.7rem, 2vw + 0.3rem, 2.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.course-card-tag {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.course-card-copy {
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.course-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.course-card-difficulty {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.course-card-difficulty strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.course-card-levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: 2px;
+}
+
+.course-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.course-card-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.course-card-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+}
+
+.course-card-button {
+  min-width: 136px;
+}
+
+@media (max-width: 1100px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .courses-page {
+    padding-top: 48px;
+    padding-bottom: 72px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .course-card-button {
+    width: 100%;
+    min-width: 0;
+  }
+}

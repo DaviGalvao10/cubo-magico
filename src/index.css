@@ -1,0 +1,562 @@
+/* ==========================================================================
+   DESIGN SYSTEM — PLATAFORMA CUBO MÁGICO
+   Identidade: Moderna, Tecnológica, Educativa, Inspirada nas Cores do Cubo
+   ========================================================================== */
+
+:root {
+  /* --- CORES ICÔNICAS DO CUBO (6 FACES OFICIAIS REFINADAS) --- */
+  --cube-white: #f8fafc;
+  --cube-yellow: #facc15;
+  --cube-green: #10b981;
+  --cube-blue: #3b82f6;
+  --cube-red: #ef4444;
+  --cube-orange: #f97316;
+
+  /* --- CORES DE NÍVEL PEDAGÓGICO --- */
+  --level-basic: #10b981;
+  --level-basic-bg: rgba(16, 185, 129, 0.12);
+  --level-basic-border: rgba(16, 185, 129, 0.3);
+
+  --level-intermediate: #f59e0b;
+  --level-intermediate-bg: rgba(245, 158, 11, 0.12);
+  --level-intermediate-border: rgba(245, 158, 11, 0.3);
+
+  --level-advanced: #ef4444;
+  --level-advanced-bg: rgba(239, 68, 68, 0.12);
+  --level-advanced-border: rgba(239, 68, 68, 0.3);
+
+  /* --- SUPERFÍCIES E FUNDOS (DARK TECH SUAVE) --- */
+  --bg-canvas: #090d16;
+  --bg-surface: #0f172a;
+  --bg-surface-elevated: #1e293b;
+  --bg-surface-hover: #27354f;
+  --bg-surface-active: #334155;
+  --bg-input: #0b1120;
+
+  /* --- BORDAS E LINHAS --- */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.25);
+  --border-brand: rgba(59, 130, 246, 0.5);
+
+  /* --- TIPOGRAFIA & TEXTO --- */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #090d16;
+
+  /* --- ACENTOS E GRADIENTES --- */
+  --brand-primary: #3b82f6;
+  --brand-primary-hover: #2563eb;
+  --brand-secondary: #8b5cf6;
+  --brand-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 60%, #ec4899 100%);
+  --cube-facet-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+
+  /* --- FEEDBACK --- */
+  --status-success: #10b981;
+  --status-warning: #f59e0b;
+  --status-error: #ef4444;
+  --status-info: #06b6d4;
+
+  /* --- FONT FAMILIES --- */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* --- ESPAÇAMENTOS (GRID 4px) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* --- BORDER RADIUS --- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* --- SOMBRAS E ELEVAÇÕES --- */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 20px -3px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 36px -4px rgba(0, 0, 0, 0.5);
+  --shadow-glow-blue: 0 0 24px rgba(59, 130, 246, 0.25);
+  --shadow-glow-yellow: 0 0 24px rgba(250, 204, 21, 0.2);
+  --shadow-cube-facet: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 12px rgba(0, 0, 0, 0.35);
+
+  /* --- TRANSIÇÕES --- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 350ms cubic-bezier(0.175, 0.885, 0.32, 1.15);
+
+  /* --- CONTAINER LIMITS --- */
+  --max-width: 1240px;
+}
+
+/* --- RESET BÁSICO E CONFIGURAÇÃO GLOBAL --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-canvas);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.06) 0%, transparent 45%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- TIPOGRAFIA --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw + 1rem, 3.25rem);
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2.25rem);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.5rem);
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+small {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* --- ELEMENTOS DE CÓDIGO E NOTAÇÃO DE CUBO --- */
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+}
+
+/* --- CLASSES DE UTILIDADE E ESTILIZAÇÃO DO DESIGN SYSTEM --- */
+
+/* Card Base */
+.card-surface {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-surface::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--cube-facet-gradient);
+  pointer-events: none;
+}
+
+.card-interactive:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+}
+
+/* Badge de Notação de Movimento (Ex: R, U', F2) */
+.notation-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 4px 10px;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-bottom-width: 3px;
+  border-radius: var(--radius-sm);
+  color: var(--cube-white);
+  box-shadow: var(--shadow-sm);
+  user-select: none;
+}
+
+/* Acentos de Faces do Cubo */
+.facet-white { border-top: 3px solid var(--cube-white); }
+.facet-yellow { border-top: 3px solid var(--cube-yellow); }
+.facet-green { border-top: 3px solid var(--cube-green); }
+.facet-blue { border-top: 3px solid var(--cube-blue); }
+.facet-red { border-top: 3px solid var(--cube-red); }
+.facet-orange { border-top: 3px solid var(--cube-orange); }
+
+/* Indicadores de Nível */
+.badge-basic {
+  background-color: var(--level-basic-bg);
+  border: 1px solid var(--level-basic-border);
+  color: var(--level-basic);
+}
+
+.badge-intermediate {
+  background-color: var(--level-intermediate-bg);
+  border: 1px solid var(--level-intermediate-border);
+  color: var(--level-intermediate);
+}
+
+.badge-advanced {
+  background-color: var(--level-advanced-bg);
+  border: 1px solid var(--level-advanced-border);
+  color: var(--level-advanced);
+}
+
+/* Focus Ring de Acessibilidade */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+/* Scrollbar Personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-elevated);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-surface-hover);
+}
+
+/* --- RESPONSIVIDADE ADAPTATIVA --- */
+@media (max-width: 768px) {
+  :root {
+    --space-6: 16px;
+    --space-8: 24px;
+    --space-10: 32px;
+  }
+
+  .container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION STYLES
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: rgba(9, 13, 22, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+/* Logo & Brand */
+.header-logo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2) 0;
+  text-decoration: none;
+  outline: none;
+  transition: transform var(--transition-fast);
+}
+
+.header-logo-btn:hover {
+  transform: translateY(-1px);
+}
+
+.header-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.3));
+}
+
+.header-brand-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--cube-white);
+  line-height: 1.1;
+}
+
+.brand-highlight {
+  color: var(--brand-primary);
+  margin-left: 2px;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  outline: none;
+  user-select: none;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-surface-elevated);
+}
+
+.nav-link-active {
+  color: var(--cube-white) !important;
+  background-color: var(--bg-surface-hover) !important;
+  border-color: var(--border-medium) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  gap: 5px;
+  padding: 0;
+  outline: none;
+  transition: background-color var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+  background: var(--bg-surface-hover);
+}
+
+.hamburger-line {
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.mobile-menu-btn.open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-btn.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Navigation Drawer & Backdrop */
+.mobile-nav-backdrop {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.mobile-nav-drawer {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-medium);
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  box-shadow: var(--shadow-lg);
+  animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.mobile-nav-link:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-surface-elevated);
+}
+
+.mobile-nav-link-active {
+  color: var(--cube-white) !important;
+  background-color: var(--bg-surface-hover) !important;
+  border-color: var(--border-brand) !important;
+}
+
+.mobile-active-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--brand-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--brand-primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Breakpoint for Mobile Nav */
+@media (max-width: 860px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+}
+
+/* ==========================================================================
+   APP LAYOUT
+   ========================================================================== */
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main-content {
+  flex: 1;
+  /* Sem padding-top — cada página define o próprio espaçamento interno */
+}
+

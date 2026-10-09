@@ -1,0 +1,713 @@
+/* ==========================================================================
+   HOME PAGE — Estilos de Seção
+   ========================================================================== */
+
+.home-page {
+  min-height: 100vh;
+}
+
+/* ── Utilitários de seção ── */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.section-title {
+  margin-bottom: var(--space-3);
+}
+
+.section-subtitle {
+  max-width: 560px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.0625rem;
+}
+
+/* ==========================================================================
+   1. HERO
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  padding: 80px 0 100px;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 65% 45%, rgba(59, 130, 246, 0.1) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 25% 60%, rgba(139, 92, 246, 0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+/* Hero Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: var(--radius-full);
+  padding: 4px 14px;
+  width: fit-content;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 4vw + 1rem, 3.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.hero-title-highlight {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Hero Stats */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.hero-stat-label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.hero-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border-subtle);
+}
+
+/* Hero Visual */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-cube-wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-cube-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-cube-svg {
+  width: 240px;
+  height: 276px;
+  animation: cube-float 4s ease-in-out infinite;
+  filter: drop-shadow(0 16px 32px rgba(59, 130, 246, 0.25));
+}
+
+@keyframes cube-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* ==========================================================================
+   2. COMO FUNCIONA
+   ========================================================================== */
+
+.how-section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.4) 50%, transparent 100%);
+}
+
+.how-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+}
+
+.how-step-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  flex: 1;
+  max-width: 320px;
+}
+
+.how-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding: 0 var(--space-8);
+  flex: 1;
+}
+
+.how-step-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-xl);
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.how-step-number {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.how-step-title {
+  font-size: 1.3125rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.how-step-desc {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 260px;
+}
+
+.how-connector {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 32px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   3. CURSOS
+   ========================================================================== */
+
+.courses-section {
+  padding: 100px 0;
+}
+
+.courses-levels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-10);
+}
+
+.levels-separator {
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  cursor: pointer;
+}
+
+.course-card:hover .course-cta-text {
+  color: var(--brand-primary);
+}
+
+.course-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.course-icon-char {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.course-name {
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.course-subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.course-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.course-levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.course-card-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.course-cta-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+/* ==========================================================================
+   4. TREINOS
+   ========================================================================== */
+
+.training-section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.4) 50%, transparent 100%);
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.training-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.training-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+}
+
+.training-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.training-title-text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.training-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
+   5. TESTES
+   ========================================================================== */
+
+.tests-section {
+  padding: 100px 0;
+}
+
+.tests-card {
+  padding: var(--space-12) !important;
+  background: linear-gradient(135deg, var(--bg-surface-elevated) 0%, var(--bg-surface) 100%) !important;
+  border-color: var(--border-medium) !important;
+}
+
+.tests-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.tests-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.tests-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-secondary);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: var(--radius-full);
+  padding: 4px 14px;
+  width: fit-content;
+}
+
+.tests-heading {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+}
+
+.tests-desc {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 520px;
+}
+
+.tests-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0;
+  margin: 0;
+}
+
+.tests-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.tests-item-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tests-item-label {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Score Ring */
+.tests-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tests-score-ring {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tests-ring-svg {
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  inset: 0;
+}
+
+.tests-ring-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.tests-ring-value {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.tests-ring-text {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   6. CTA FINAL
+   ========================================================================== */
+
+.cta-section {
+  padding: 100px 0 120px;
+}
+
+.cta-inner {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-16) var(--space-8);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.cta-glow {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 300px;
+  background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-eyebrow {
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cube-yellow);
+  background: rgba(250, 204, 21, 0.1);
+  border: 1px solid rgba(250, 204, 21, 0.25);
+  border-radius: var(--radius-full);
+  padding: 4px 14px;
+}
+
+.cta-title {
+  font-size: clamp(2rem, 3vw + 0.5rem, 2.75rem);
+  letter-spacing: -0.04em;
+  max-width: 600px;
+  margin: 0;
+}
+
+.cta-desc {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-2);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .courses-grid,
+  .training-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-12);
+  }
+
+  .hero-content {
+    align-items: center;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .hero-cube-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-cube-svg {
+    width: 180px;
+    height: 207px;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .how-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  .how-step-wrapper {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .how-connector {
+    display: none;
+  }
+
+  .how-step {
+    padding: 0 var(--space-4);
+  }
+
+  .tests-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .tests-visual {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 60px 0 80px;
+  }
+
+  .how-section,
+  .courses-section,
+  .training-section,
+  .tests-section,
+  .cta-section {
+    padding: 72px 0;
+  }
+
+  .courses-grid,
+  .training-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tests-card {
+    padding: var(--space-8) !important;
+  }
+
+  .cta-inner {
+    padding: var(--space-10) var(--space-6);
+  }
+
+  .hero-ctas,
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-ctas .ui-button,
+  .cta-actions .ui-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

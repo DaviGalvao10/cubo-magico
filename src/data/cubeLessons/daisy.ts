@@ -1,0 +1,1 @@
+export const DAISY_STATE_ALGORITHM = "F R F2 R B2 F2 D2 R' B2 L' U2 R2 F2 D U L' U' B L' F2";

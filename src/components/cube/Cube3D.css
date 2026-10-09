@@ -1,0 +1,78 @@
+.cube3d {
+  display: block;
+  width: min(100%, 220px);
+  height: auto;
+  flex: 0 1 220px;
+  overflow: visible;
+  filter: drop-shadow(0 14px 16px rgba(0, 0, 0, 0.32));
+}
+
+.cube3d--animated {
+  width: min(100%, 440px);
+  height: 320px;
+  flex: 0 1 440px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  filter: none;
+}
+
+.cube3d--animated twisty-player {
+  width: 100%;
+  height: 100%;
+}
+
+.cube3d-shell,
+.cube3d-face-base {
+  fill: #080c14;
+}
+
+.cube3d-sticker {
+  stroke: none;
+  transition: fill 180ms ease, filter 180ms ease;
+}
+
+.cube3d-sticker.is-focused {
+  filter: brightness(1.16);
+}
+
+.cube3d-grid,
+.cube3d-edges,
+.cube3d-outline {
+  fill: none;
+  stroke: #080c14;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.cube3d-grid {
+  stroke-width: 2.4;
+}
+
+.cube3d-edges {
+  stroke-width: 3;
+}
+
+.cube3d-outline {
+  stroke-width: 4;
+}
+
+@media (max-width: 520px) {
+  .cube3d {
+    align-self: center;
+    flex-basis: 200px;
+    width: min(100%, 200px);
+  }
+
+  .cube3d--animated {
+    width: min(100%, 360px);
+    height: 270px;
+    flex-basis: 270px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube3d-sticker {
+    transition: none;
+  }
+}
